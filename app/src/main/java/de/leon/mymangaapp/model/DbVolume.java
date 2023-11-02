@@ -1,5 +1,6 @@
 package de.leon.mymangaapp.model;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -77,14 +78,17 @@ public class DbVolume extends DbData {
     }
 
     public static DbVolume fromJsonObject(JSONObject object) throws JSONException {
+
+
+
         return new DbVolume(
                 object.getInt("_RowNumber"),
                 object.getString("Row ID"),
                 object.getString("UserEmail"),
                 object.getString("Reihe"),
-                object.getInt("Band"),
+                StringUtils.isBlank(object.getString("Band")) ? null : object.getInt("Band"),
                 object.getInt("Auflage"),
-                Double.parseDouble(object.getString("Preis")),
+                Double.parseDouble(StringUtils.isBlank(object.getString("Preis")) ? "0.00" : object.getString("Preis")),
                 LocalDate.parse(object.getString("Erscheinungstag"), DateTimeFormatter.ofPattern("MM/dd/yyyy")),
                 dbBoolToBoolean(object.getString("Gelesen")),
                 object.getString("Anmerkung")
