@@ -1,9 +1,5 @@
 package de.leon.mymangaapp.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import org.json.JSONObject;
-
 @lombok.Data
 public abstract class DbData {
 

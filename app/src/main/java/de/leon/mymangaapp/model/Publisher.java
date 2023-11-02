@@ -1,13 +1,9 @@
 package de.leon.mymangaapp.model;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import lombok.Getter;
 import lombok.NonNull;
 
 @lombok.Data

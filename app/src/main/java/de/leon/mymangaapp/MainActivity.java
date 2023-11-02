@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        AppSheetCalls calls = null;
+        AppSheetCalls calls;
         try {
             calls = new AppSheetCalls(getApplicationContext());
         } catch (IOException e) {

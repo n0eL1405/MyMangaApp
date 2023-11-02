@@ -1,21 +1,9 @@
 package de.leon.mymangaapp.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NonNull;
 
 @lombok.Data
