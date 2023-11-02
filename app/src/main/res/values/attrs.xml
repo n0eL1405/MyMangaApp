@@ -1,0 +1,4 @@
+<resources>
+    <declare-styleable name="CustomView">
+    </declare-styleable>
+</resources>
