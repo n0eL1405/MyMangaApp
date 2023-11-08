@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_drawer_open">Navigation im Drawer öffnen</string>
+    <string name="navigation_drawer_close">Navigation im Drawer schließen</string>
+    <string name="nav_header_desc">Navigations Kopf</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Galerie</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="author_details_author_header">Name</string>
+    <string name="author_details_author_series_number">Reihen</string>
+    <string name="date_format">dd.MM.yyyy</string>
+</resources>
