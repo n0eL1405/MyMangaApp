@@ -1,24 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/authorNameTextInputLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:labelFor="@id/authorNameTextInput"
-        android:text="Name" />
-
-    <EditText
-        android:id="@+id/authorNameTextInput"
+    <LinearLayout
+        android:id="@+id/authorNameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="none"
-        android:textIsSelectable="true"
-        android:focusable="false"
-        android:autofillHints="" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/authorNameTextLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/authorNameText"
+            android:text="@string/author_details_author_header" />
+
+        <EditText
+            android:id="@+id/authorNameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:focusable="false"
+            android:inputType="none"
+            android:textIsSelectable="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/authorSeriesLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/authorSeriesTextLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/author_details_author_series_number" />
+
+        <EditText
+            android:id="@+id/authorSeriesText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:focusable="false"
+            android:inputType="none"
+            android:textIsSelectable="true" />
+    </LinearLayout>
+
 </LinearLayout>

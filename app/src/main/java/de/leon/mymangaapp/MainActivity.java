@@ -27,14 +27,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        AppSheetCalls calls;
-        try {
-            calls = new AppSheetCalls(getApplicationContext());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        calls.getAllVolumes(list -> System.out.println(list), error -> System.out.println(error));
-
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
