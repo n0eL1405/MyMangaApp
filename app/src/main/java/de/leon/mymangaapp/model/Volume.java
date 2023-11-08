@@ -2,6 +2,8 @@ package de.leon.mymangaapp.model;
 
 import androidx.annotation.Nullable;
 
+import java.time.LocalDate;
+
 import lombok.NonNull;
 
 @lombok.Data
@@ -15,22 +17,25 @@ public class Volume extends Data {
     @NonNull
     private Double price;
     @NonNull
+    private LocalDate releaseDate;
+    @NonNull
     private boolean read = false;
     @NonNull
     private String note;
 
-    public Volume(@NonNull String id, @NonNull String seriesId, @Nullable Integer volumeNumber, @NonNull Integer edition, @NonNull Double price, @NonNull boolean read, @NonNull String note) {
+    public Volume(@NonNull String id, @NonNull String seriesId, @Nullable Integer volumeNumber, @NonNull Integer edition, @NonNull Double price, @NonNull LocalDate releaseDate, @NonNull boolean read, @NonNull String note) {
         super(id);
         this.seriesId = seriesId;
         this.volumeNumber = volumeNumber;
         this.edition = edition;
         this.price = price;
+        this.releaseDate = releaseDate;
         this.read = read;
         this.note = note;
     }
 
-    public Volume(@NonNull String id, @NonNull String seriesId, @Nullable Integer volumeNumber, @NonNull Integer edition, @NonNull Double price, @NonNull boolean read) {
-        this(id, seriesId, volumeNumber, edition, price, read, "");
+    public Volume(@NonNull String id, @NonNull String seriesId, @Nullable Integer volumeNumber, @NonNull Integer edition, @NonNull Double price, @NonNull LocalDate releaseDate, @NonNull boolean read) {
+        this(id, seriesId, volumeNumber, edition, price, releaseDate, read, "");
     }
 
     public String getSeriesId() {
@@ -63,7 +68,7 @@ public class Volume extends Data {
      *  If a Series doesn't have normal Volumes but is like a collection, the note should contain the title of the manga.
      */
     public String getVolumeOrNote() {
-        return volumeNumber != null ? volumeNumber.toString() : note;
+        return volumeNumber != null ? "# " + volumeNumber : note;
     }
 
     public void setRead(boolean read) {
@@ -74,7 +79,11 @@ public class Volume extends Data {
         this.note = note;
     }
 
+    public LocalDate getReleaseDate() {
+        return releaseDate;
+    }
+
     public static Volume fromDbObject(DbVolume volume) {
-        return new Volume(volume.getRowId(), volume.getSeries(), volume.getVolumeNumber(), volume.getEdition(), volume.getPrice(), volume.isRead(), volume.getNote());
+        return new Volume(volume.getRowId(), volume.getSeries(), volume.getVolumeNumber(), volume.getEdition(), volume.getPrice(), volume.getReleaseDate(), volume.isRead(), volume.getNote());
     }
 }
