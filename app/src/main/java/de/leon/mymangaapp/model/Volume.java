@@ -4,13 +4,21 @@ import androidx.annotation.Nullable;
 
 import java.time.LocalDate;
 
+import de.leon.mymangaapp.model.db.DbVolume;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NonNull;
 
 @lombok.Data
-public class Volume extends Data {
+@Getter
+@AllArgsConstructor
+public class Volume {
 
     @NonNull
+    private ID id;
+    @NonNull
     private String seriesId;
+    @Nullable
     private Integer volumeNumber;
     @NonNull
     private Integer edition;
@@ -18,48 +26,12 @@ public class Volume extends Data {
     private Double price;
     @NonNull
     private LocalDate releaseDate;
-    @NonNull
     private boolean read = false;
     @NonNull
     private String note;
 
-    public Volume(@NonNull String id, @NonNull String seriesId, @Nullable Integer volumeNumber, @NonNull Integer edition, @NonNull Double price, @NonNull LocalDate releaseDate, @NonNull boolean read, @NonNull String note) {
-        super(id);
-        this.seriesId = seriesId;
-        this.volumeNumber = volumeNumber;
-        this.edition = edition;
-        this.price = price;
-        this.releaseDate = releaseDate;
-        this.read = read;
-        this.note = note;
-    }
-
-    public Volume(@NonNull String id, @NonNull String seriesId, @Nullable Integer volumeNumber, @NonNull Integer edition, @NonNull Double price, @NonNull LocalDate releaseDate, @NonNull boolean read) {
+    public Volume(@NonNull ID id, @NonNull String seriesId, @Nullable Integer volumeNumber, @NonNull Integer edition, @NonNull Double price, @NonNull LocalDate releaseDate, @NonNull boolean read) {
         this(id, seriesId, volumeNumber, edition, price, releaseDate, read, "");
-    }
-
-    public String getSeriesId() {
-        return seriesId;
-    }
-
-    public Integer getVolumeNumber() {
-        return volumeNumber;
-    }
-
-    public Integer getEdition() {
-        return edition;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public boolean isRead() {
-        return read;
-    }
-
-    public String getNote() {
-        return note;
     }
 
     /**
@@ -71,19 +43,13 @@ public class Volume extends Data {
         return volumeNumber != null ? "# " + volumeNumber : note;
     }
 
-    public void setRead(boolean read) {
-        this.read = read;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-
-    public LocalDate getReleaseDate() {
-        return releaseDate;
-    }
-
     public static Volume fromDbObject(DbVolume volume) {
-        return new Volume(volume.getRowId(), volume.getSeries(), volume.getVolumeNumber(), volume.getEdition(), volume.getPrice(), volume.getReleaseDate(), volume.isRead(), volume.getNote());
+        return new Volume(ID.of(volume.getRowId()), volume.getSeries(), volume.getVolumeNumber(), volume.getEdition(), volume.getPrice(), volume.getReleaseDate(), volume.isRead(), volume.getNote());
+    }
+
+    @AllArgsConstructor(staticName = "of")
+    public static class ID {
+        @NonNull
+        private String rawValue;
     }
 }

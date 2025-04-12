@@ -19,10 +19,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
-import de.leon.mymangaapp.model.DbAuthor;
-import de.leon.mymangaapp.model.DbPublisher;
-import de.leon.mymangaapp.model.DbSeries;
-import de.leon.mymangaapp.model.DbVolume;
+import de.leon.mymangaapp.model.db.DbAuthor;
+import de.leon.mymangaapp.model.db.DbPublisher;
+import de.leon.mymangaapp.model.db.DbSeries;
+import de.leon.mymangaapp.model.db.DbVolume;
 import de.leon.mymangaapp.ui.PropertiesUtil;
 
 public class AppSheetCalls {

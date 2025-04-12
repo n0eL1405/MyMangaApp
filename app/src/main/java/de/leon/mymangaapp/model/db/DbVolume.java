@@ -1,4 +1,4 @@
-package de.leon.mymangaapp.model;
+package de.leon.mymangaapp.model.db;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
@@ -7,9 +7,14 @@ import org.json.JSONObject;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
+import lombok.experimental.SuperBuilder;
 
-@lombok.Data
+@EqualsAndHashCode(callSuper = true)
+@Data
+@SuperBuilder
 public class DbVolume extends DbData {
 
     @NonNull
